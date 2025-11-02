@@ -19,7 +19,8 @@ touch .env Dockerfile poller.py
 
 **OR GIT CLONE THIS REPO:**
 ```bash
-git clone https://github.com/JoaoPito/n8n-telegram-no-expose.git telegram-poller
+git clone https://github.com/JoaoPito/n8n-telegram-no-expose.git telegram-poller && cd telegram-poller
+touch .env
 ```
 
 ---
@@ -28,7 +29,7 @@ git clone https://github.com/JoaoPito/n8n-telegram-no-expose.git telegram-poller
 
 ```env
 BOT_TOKEN=telegram_bot_token_here
-N8N_URL=http://n8n:5678/webhook/
+N8N_URL=http://n8n:5678/webhook/ # IMPORTANT: both URLs must have a trailing '/'
 N8N_URL=http://n8n:5678/webhook-test/ # IMPORTANT: both URLs must have a trailing '/'
 WEBHOOK_PATH=telegram-local
 ```
@@ -71,6 +72,8 @@ docker run -it --rm --name n8n \
 **Telegram Poller container:**
 
 ```bash
+docker build --network=host -t telegram-poller .
+
 docker run -it --rm --name telegram-poller \
   --network n8n-net \
   --env-file .env \
