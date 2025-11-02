@@ -28,8 +28,8 @@ git clone https://github.com/JoaoPito/n8n-telegram-no-expose.git
 
 ```env
 BOT_TOKEN=telegram_bot_token_here
-N8N_URL=http://n8n:5678/webhook
-N8N_URL=http://n8n:5678/webhook-test
+N8N_URL=http://n8n:5678/webhook/
+N8N_URL=http://n8n:5678/webhook-test/ # IMPORTANT: both URLs must have a trailing '/'
 WEBHOOK_PATH=telegram-local
 ```
 
